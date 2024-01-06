@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
 }
@@ -20,6 +20,11 @@ header {
   border-radius: 0;
   border-bottom: 10px solid black;
   padding: 60px;
+}
+
+header .lead {
+  font-weight: 400;
+  color: rgb(3, 88, 88);
 }
 
 .description {
