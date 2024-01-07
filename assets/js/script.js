@@ -1,3 +1,5 @@
+const tableBody = $("#tableBody");
+
 //display currentDay and currentTime dayjs
 const update = function () {
   // display current day using dayjs
@@ -26,3 +28,9 @@ const hours = [
   "5:00 PM",
 ];
 console.log(hours);
+
+hours.forEach(function (hour) {
+  const row = $("<tr>");
+  row.append(`<td class="col-2 text-center">${hour}</td>`);
+  tableBody.append(row);
+});
