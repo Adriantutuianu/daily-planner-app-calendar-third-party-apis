@@ -32,17 +32,22 @@ const hours = [
   "5:00 PM",
 ];
 
-//loop through each hour in the array
-hours.forEach(function (hour) {
+function createTableRow(hour) {
   // create new table row
   const row = $("<tr>");
-  row.append(`<td class="col-2">${hour}</td>`); // cell 1
-  row.append(
-    `<td class="col-9 "><textarea class="form-control" placeholder="What are your plans?"></textarea>`
-  ); //cell 2
-  row.append(
-    `</td><td class="col-1 "><button class="btn btn-primary saveBtn">Save</button></td>`
-  ); //cell 3
-  //added row to the tableBody
+
+  const hourCell = `<td class="col-2">${hour}</td>`;
+  const toDoCell = `<td class="col-9"><textarea class="form-control" placeholder="What are your plans?"></textarea>`;
+  const saveCell = `</td><td class="col-1"><button class="btn btn-primary saveBtn">Save</button></td>`;
+
+  row.append(hourCell, toDoCell, saveCell);
+
+  return row;
+}
+
+// Loop through each hour in the array and create table rows
+hours.forEach(function (hour) {
+  const row = createTableRow(hour);
+  // Add the row to the tableBody
   tableBody.append(row);
 });
