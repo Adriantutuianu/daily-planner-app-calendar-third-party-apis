@@ -9,6 +9,10 @@ const update = function () {
   //display current time using dayjs
   const currentTime = dayjs().format("h:mm:ss a");
   $("#currentTime").text(currentTime);
+
+  //display current year footer
+  const currentYear = dayjs().format("YYYY");
+  $("#currentYear").text(currentYear);
 };
 update();
 
