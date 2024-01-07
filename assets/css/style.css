@@ -45,7 +45,6 @@ header .lead {
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
 }
 
 .past {
@@ -69,6 +68,8 @@ header .lead {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  padding: 8px;
+  margin-top: 10px;
 }
 
 .saveBtn i:hover {
