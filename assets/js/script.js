@@ -32,7 +32,7 @@ const hours = [
 hours.forEach(function (hour) {
   // create new table row
   const row = $("<tr>");
-  row.append(`<td class="col-2 hour">${hour}</td>`); // cell 1
+  row.append(`<td class="col-2 hour ">${hour}</td>`); // cell 1
   row.append(
     `<td class="col-8 "><textarea class="form-control" placeholder="What are your plans?"></textarea>`
   ); //cell 2

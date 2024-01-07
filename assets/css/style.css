@@ -15,7 +15,7 @@ textarea {
 
 header {
   text-align: center;
-  background-color: transparent;
+  background-color: #e5e1da;
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
@@ -75,4 +75,22 @@ header .lead {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+/* footer style */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-top: 2px solid black;
+  background-color: #e5e1da;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+footer .footer-name {
+  color: var(--var-color5);
+  margin: 0 5px;
 }
