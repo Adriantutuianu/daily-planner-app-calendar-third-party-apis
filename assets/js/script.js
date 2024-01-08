@@ -33,8 +33,8 @@ const hours = [
 ];
 // really struggled a few days to find a solution that is working.
 // I think dayjs have an issue(doesn't really make the diff between am and pm properly even if the format is the same)
-// if I am applying a simple if statement all the hours will take the class future even if it is not right.
-
+// If I am applying a simple if statement all the hours will take the class future even if it is not right.
+// please send me a message if you find a better way that is working:)
 function determineClass(hourValue) {
   const currentTime = dayjs();
   const [targetHour, targetMinute, targetPeriod] = hourValue
