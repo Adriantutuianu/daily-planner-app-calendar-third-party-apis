@@ -42,10 +42,13 @@ function createTableRow(hour) {
 
   row.append(hourCell, toDoCell, saveCell);
 
-  // Event handler for saving the entered event
+  // event handler for saving the entered event
   row.find(".saveBtn").on("click", function () {
     const eventText = row.find("textarea").val();
+    const localStorageKey = "event_" + hour.replace(/\s+/g, "_");
 
+    //saved in local storage the event
+    localStorage.setItem(localStorageKey, eventText);
     console.log(`Event saved for ${hour}: ${eventText}`);
   });
 
