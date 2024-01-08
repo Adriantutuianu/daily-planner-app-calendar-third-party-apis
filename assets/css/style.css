@@ -5,12 +5,12 @@ body {
 }
 
 textarea {
-  /* background: transparent; */
-  /* border: none; */
-  /* resize: none; */
-  /* color: #000000; */
-  /* border-left: 2px solid black; */
-  /* padding: 10px; */
+  background: transparent;
+  border: none;
+  resize: none;
+  color: #000000;
+  border-left: 2px solid black;
+  padding: 10px;
 }
 
 header {
@@ -49,7 +49,8 @@ header .lead {
 } */
 
 .past {
-  background-color: #d3d3d3;
+  background-color: red;
+  /* background-color: #d3d3d3; */
   color: white;
 }
 

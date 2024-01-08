@@ -42,6 +42,13 @@ function createTableRow(hour) {
 
   row.append(hourCell, toDoCell, saveCell);
 
+  // Event handler for saving the entered event
+  row.find(".saveBtn").on("click", function () {
+    const eventText = row.find("textarea").val();
+
+    console.log(`Event saved for ${hour}: ${eventText}`);
+  });
+
   return row;
 }
 
