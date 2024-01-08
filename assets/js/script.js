@@ -44,11 +44,17 @@ function createTableRow(hour) {
   // create new table row
   const row = $("<tr>");
 
-  const hourCell = `<td class="col-2">${hour}</td>`;
-  const toDoCell = `<td class="col-9"><textarea class="form-control" placeholder="What are your plans?">${
-    storedEvent || ""
-  }</textarea>`;
-  const saveCell = `</td><td class="col-1"><button class="btn btn-primary saveBtn">Save</button></td>`;
+  const hourCell = $("<td>").addClass("col-2").text(hour);
+  const toDoCell = $("<td>")
+    .addClass("col-9")
+    .html(
+      `<textarea class="form-control" placeholder="What are your plans?">${
+        storedEvent || ""
+      }</textarea>`
+    );
+  const saveCell = $("<td>")
+    .addClass("col-1")
+    .html('<button class="btn btn-primary saveBtn">Save</button>');
 
   //Append cells to the row
   row.append(hourCell, toDoCell, saveCell);
@@ -59,7 +65,7 @@ function createTableRow(hour) {
 
     //stored in local storage the event
     localStorage.setItem(localStorageKey, eventText);
-    console.log("Event saved for " + hour + ":" + eventText);
+    console.log("Event saved for " + hour + ": " + eventText);
   });
 
   return row;
