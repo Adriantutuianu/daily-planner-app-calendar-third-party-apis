@@ -6,11 +6,11 @@ Explore the Daily Planner App – a dynamic web application meticulously built w
 
 Technologies Used:
 
-HTML
-CSS
-JAVASCRIPT
-JQUERY
-JQUERY UI
+HTML /
+CSS /
+JAVASCRIPT /
+JQUERY /
+JQUERY UI /
 DAYJS
 
 This website was deployed and you can see it live here: https://adriantutuianu.github.io/daily-planner-app-calendar-third-party-apis/
