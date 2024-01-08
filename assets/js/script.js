@@ -21,16 +21,26 @@ setInterval(update, 1000);
 
 // Array with hours for scheduler
 const hours = [
-  "9:00 AM",
+  "09:00 AM",
   "10:00 AM",
   "11:00 AM",
   "12:00 PM",
-  "1:00 PM",
-  "2:00 PM",
-  "3:00 PM",
-  "4:00 PM",
-  "5:00 PM",
+  "01:00 PM",
+  "02:00 PM",
+  "03:00 PM",
+  "04:00 PM",
+  "05:00 PM",
 ];
+
+function determineClass(hourValue) {
+  const currentTime = dayjs().format("h:00 A");
+
+  if (currentTime === hourValue) {
+    return "present";
+
+    //TODO: return past and future classes.
+  }
+}
 
 // Function to create a table row for each hour
 function createTableRow(hour) {
@@ -45,13 +55,17 @@ function createTableRow(hour) {
   const row = $("<tr>");
 
   const hourCell = $("<td>").addClass("col-2").text(hour);
+
+  const timeClass = determineClass(hour);
+
   const toDoCell = $("<td>")
     .addClass("col-9")
     .html(
-      `<textarea class="form-control" placeholder="What are your plans?">${
+      `<textarea class="form-control ${timeClass}" placeholder="What are your plans?">${
         storedEvent || ""
       }</textarea>`
     );
+
   const saveCell = $("<td>")
     .addClass("col-1")
     .html('<button class="btn btn-primary saveBtn">Save</button>');
@@ -72,8 +86,8 @@ function createTableRow(hour) {
 }
 
 // Loop through each hour in the array and create table rows
-hours.forEach(function (hour) {
-  const row = createTableRow(hour);
+hours.forEach(function (item) {
+  const row = createTableRow(item);
   // Add the row to the tableBody
   tableBody.append(row);
 });
