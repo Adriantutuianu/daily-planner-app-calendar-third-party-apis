@@ -41,6 +41,7 @@ function determineClass(hourValue) {
     .match(/(\d{2}):(\d{2}) (AM|PM)/)
     .slice(1, 4);
 
+  // Convert target hour to 24-hour format based on AM/PM
   let targetHourValue = parseInt(targetHour);
   if (targetPeriod === "PM" && targetHourValue !== 12) {
     targetHourValue += 12;
@@ -48,13 +49,14 @@ function determineClass(hourValue) {
     targetHourValue = 0;
   }
 
+  // Create a dayjs object for the target time with minute, second, and millisecond set to 0
   const targetTime = dayjs()
     .set("hour", targetHourValue)
     .set("minute", parseInt(targetMinute))
     .set("second", 0)
     .set("millisecond", 0);
 
-  // if statemnt to apply classes - diff colors based on current hour.
+  // if statement to apply classes - diff colors based on current hour.
   if (currentTime.hour() === targetTime.hour()) {
     return "present";
   } else if (currentTime.hour() > targetTime.hour()) {
