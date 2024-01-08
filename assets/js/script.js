@@ -31,7 +31,7 @@ const hours = [
   "04:00 PM",
   "05:00 PM",
 ];
-// really struggled a few days to find a solution that is working.
+// really struggled a few days to find a solution that is working for function determineClass to set color based on current hour.
 // I think dayjs have an issue(doesn't really make the diff between am and pm properly even if the format is the same)
 // If I am applying a simple if statement all the hours will take the class future even if it is not right.
 // please send me a message if you find a better way that is working:)
