@@ -17,7 +17,7 @@ This website was deployed and you can see it live here: https://adriantutuianu.g
 
 ## Installation
 
-N/A
+All the data is saved in Local Storage.
 
 ## Usage
 
