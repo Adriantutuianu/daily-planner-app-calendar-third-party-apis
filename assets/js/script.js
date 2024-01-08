@@ -31,14 +31,36 @@ const hours = [
   "04:00 PM",
   "05:00 PM",
 ];
+// really struggled a few days to find a solution that is working.
+// I think dayjs have an issue(doesn't really make the diff between am and pm properly even if the format is the same)
+// if I am applying a simple if statement all the hours will take the class future even if it is not right.
 
 function determineClass(hourValue) {
-  const currentTime = dayjs().format("h:00 A");
+  const currentTime = dayjs();
+  const [targetHour, targetMinute, targetPeriod] = hourValue
+    .match(/(\d{2}):(\d{2}) (AM|PM)/)
+    .slice(1, 4);
 
-  if (currentTime === hourValue) {
+  let targetHourValue = parseInt(targetHour);
+  if (targetPeriod === "PM" && targetHourValue !== 12) {
+    targetHourValue += 12;
+  } else if (targetPeriod === "AM" && targetHourValue === 12) {
+    targetHourValue = 0;
+  }
+
+  const targetTime = dayjs()
+    .set("hour", targetHourValue)
+    .set("minute", parseInt(targetMinute))
+    .set("second", 0)
+    .set("millisecond", 0);
+
+  // if statemnt to apply classes - diff colors based on current hour.
+  if (currentTime.hour() === targetTime.hour()) {
     return "present";
-
-    //TODO: return past and future classes.
+  } else if (currentTime.hour() > targetTime.hour()) {
+    return "past";
+  } else {
+    return "future";
   }
 }
 
