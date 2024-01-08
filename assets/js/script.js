@@ -32,24 +32,34 @@ const hours = [
   "5:00 PM",
 ];
 
+// Function to create a table row for each hour
 function createTableRow(hour) {
+  // Create a unique key for the current hour in localStorage
+  const localStorageKey = "event_" + hour.replace(/\s+/g, "_");
+
+  // Persist events between refreshes of a page
+  // Retrieve the stored event for the current hour from localStorage
+  const storedEvent = localStorage.getItem(localStorageKey);
+
   // create new table row
   const row = $("<tr>");
 
   const hourCell = `<td class="col-2">${hour}</td>`;
-  const toDoCell = `<td class="col-9"><textarea class="form-control" placeholder="What are your plans?"></textarea>`;
+  const toDoCell = `<td class="col-9"><textarea class="form-control" placeholder="What are your plans?">${
+    storedEvent || ""
+  }</textarea>`;
   const saveCell = `</td><td class="col-1"><button class="btn btn-primary saveBtn">Save</button></td>`;
 
+  //Append cells to the row
   row.append(hourCell, toDoCell, saveCell);
 
-  // event handler for saving the entered event
+  // event handler for saving the entered event-save button
   row.find(".saveBtn").on("click", function () {
     const eventText = row.find("textarea").val();
-    const localStorageKey = "event_" + hour.replace(/\s+/g, "_");
 
-    //saved in local storage the event
+    //stored in local storage the event
     localStorage.setItem(localStorageKey, eventText);
-    console.log(`Event saved for ${hour}: ${eventText}`);
+    console.log("Event saved for " + hour + ":" + eventText);
   });
 
   return row;
